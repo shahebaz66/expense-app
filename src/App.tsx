@@ -1,12 +1,12 @@
+import React from "react";
 import { MemoryRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Navbar, Container, Nav } from "react-bootstrap";
 import Home from "./components/home";
 import Transaction from "./components/transaction";
 import Category from "./components/category";
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
         <nav className="navbar navbar-expand navbar-light bg-light">
           <div className="container-fluid">
@@ -43,7 +43,7 @@ function App() {
           <Route path="/category" element={<Category />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

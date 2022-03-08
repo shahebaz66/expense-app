@@ -1,24 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Chart as ChartJS } from "chart.js/auto";
-import { Chart } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Bar } from "react-chartjs-2";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  title: {
+    display: true,
+    text: "Average Rainfall per month",
+    fontSize: 20,
+  },
+  legend: {
+    display: true,
+    position: "right",
+  },
+};
+type IChartData = {
+  labels: string[];
+  datasets: {
+    label: string;
+    backgroundColor: string;
+    borderColor: string;
+    borderWidth: number;
+    data: string[];
+  }[];
+};
 
 function Home() {
-  const transaction = useSelector((state) => state.transaction);
-  const categories = useSelector((state) => state.category);
-  const [chartState, setChartState] = useState({});
+  const transaction = useSelector((state: any) => state.transaction);
+  const categories = useSelector((state: any) => state.category);
+  const [chartState, setChartState] = useState<IChartData>();
   useEffect(() => {
-    const data = {};
+    const data: any = {};
     if (Object.values(transaction).length > 0) {
-      Object.values(transaction).map((key) => {
+      Object.values(transaction).map((key: any) => {
         if (data[key.category]) {
           data[key.category] += Number(key.amount);
         } else {
           data[key.category] = Number(key.amount);
         }
       });
-      const state = {
+      const state: any = {
         labels: Object.keys(data),
         datasets: [
           {
@@ -34,26 +72,12 @@ function Home() {
     }
   }, [transaction]);
   console.log(chartState);
+
   return (
     <div>
-      {Object.keys(chartState).length > 0 ? (
+      {chartState ? (
         <div style={{ height: "50vh" }}>
-          <Bar
-            data={chartState}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              title: {
-                display: true,
-                text: "Average Rainfall per month",
-                fontSize: 20,
-              },
-              legend: {
-                display: true,
-                position: "right",
-              },
-            }}
-          />
+          <Bar data={chartState} options={options} />
         </div>
       ) : null}
       <div className="mb-3 p-3">

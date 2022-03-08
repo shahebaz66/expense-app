@@ -4,9 +4,9 @@ import actions from "../../store/actions";
 
 function Category() {
   const dispatch = useDispatch();
-  const categories = useSelector((state) => state.category);
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
+  const categories = useSelector((state: any) => state.category);
+  const [name, setName] = useState<string>("");
+  const [id, setId] = useState<string>("");
   const handleSave = () => {
     if (name === "" || id === "") {
       alert("Please fill all the fields");
@@ -20,7 +20,7 @@ function Category() {
     setName("");
     setId("");
   };
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     dispatch({
       type: actions.DELETE_CATEGORY,
       id,

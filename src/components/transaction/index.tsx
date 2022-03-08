@@ -4,11 +4,11 @@ import actions from "../../store/actions";
 
 function Transaction() {
   const dispatch = useDispatch();
-  const categories = useSelector((state) => state.category);
-  const transaction = useSelector((state) => state.transaction);
-  const [label, setLabel] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [category, setCategory] = useState("");
+  const categories = useSelector((state: any) => state.category);
+  const transaction = useSelector((state: any) => state.transaction);
+  const [label, setLabel] = useState<string>("");
+  const [amount, setAmount] = useState<number>(0);
+  const [category, setCategory] = useState<string>("");
 
   const handleSave = () => {
     if (category === "" || amount === 0 || label === "") {
@@ -47,7 +47,7 @@ function Transaction() {
       <div className="mb-3">
         <label className="form-label">amount</label>
         <input
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => setAmount(Number(e.target.value))}
           value={amount}
           type="number"
           className="form-control"

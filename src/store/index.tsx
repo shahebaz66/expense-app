@@ -1,8 +1,7 @@
 import { createStore } from "redux";
 import rootReducer from "./reducers";
 
-
-function saveToLocalStorage(state) {
+function saveToLocalStorage(state: any) {
   try {
     const serialisedState = JSON.stringify(state);
     localStorage.setItem("persistantState", serialisedState);
