@@ -27,9 +27,9 @@ function Category() {
     });
   };
   return (
-    <div className="p-3">
+    <div className="padding-box">
       <div className="mb-3">
-        <label className="form-label">category name</label>
+        <label className="form-label label-heading">Category name</label>
         <input
           onChange={(e) => setName(e.target.value)}
           value={name}
@@ -39,7 +39,7 @@ function Category() {
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">category id</label>
+        <label className="form-label label-heading">Category id</label>
         <input
           onChange={(e) => setId(e.target.value)}
           value={id}
@@ -48,11 +48,11 @@ function Category() {
           placeholder="id"
         />
       </div>
-      <button className="btn btn-lg btn-primary" onClick={handleSave}>
+      <button className="btn btn-lg btn-dark" onClick={handleSave}>
         Submit
       </button>
       <hr />
-      <table className="table">
+      <table className="table table-dark table-hover">
         <thead>
           <tr>
             <th scope="col">id</th>

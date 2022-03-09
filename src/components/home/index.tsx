@@ -80,9 +80,9 @@ function Home() {
           <Bar data={chartState} options={options} />
         </div>
       ) : null}
-      <div className="mb-3 p-3">
-        <label className="form-label">transaction table</label>
-        <table className="table">
+      <div className="mb-3 padding-box">
+        <label className="form-label label-heading">Transaction Table</label>
+        <table className="table table-dark table-hover">
           <thead>
             <tr>
               <th scope="col">id</th>
@@ -108,9 +108,9 @@ function Home() {
         </table>
       </div>
       <hr />
-      <div className="mb-3 p-3">
-        <label className="form-label">categories table</label>
-        <table className="table">
+      <div className="mb-3 padding-box">
+        <label className="form-label label-heading">Categories Table</label>
+        <table className="table table-dark table-hover">
           <thead>
             <tr>
               <th scope="col">id</th>

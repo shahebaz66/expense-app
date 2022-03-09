@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
       <Router>
-        <nav className="navbar navbar-expand navbar-light bg-light">
-          <div className="container-fluid">
+        <nav className="navbar navbar-expand navbar-dark bg-dark header-box">
+          <div className="container-fluid ">
             <Link className="nav-link" to="/">
               Expense App
             </Link>
@@ -25,12 +25,12 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/category">
-                    category
+                    Category
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/transaction">
-                    transaction
+                    Transaction
                   </Link>
                 </li>
               </ul>
