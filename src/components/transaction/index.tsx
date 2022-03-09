@@ -33,29 +33,29 @@ function Transaction() {
   };
 
   return (
-    <div className="p-3">
+    <div className="padding-box">
       <div className="mb-3">
-        <label className="form-label">label</label>
+        <label className="form-label label-heading">Label</label>
         <input
           onChange={(e) => setLabel(e.target.value)}
           value={label}
           type="text"
           className="form-control"
-          placeholder="category name"
+          placeholder="Category name"
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">amount</label>
+        <label className="form-label label-heading">Amount</label>
         <input
           onChange={(e) => setAmount(Number(e.target.value))}
           value={amount}
           type="number"
           className="form-control"
-          placeholder="id"
+          placeholder="Id"
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">category id</label>
+        <label className="form-label label-heading">Category id</label>
         <select
           onChange={(e) => setCategory(e.target.value)}
           value={category}
@@ -72,11 +72,11 @@ function Transaction() {
           })}
         </select>
       </div>
-      <button className="btn btn-lg btn-primary" onClick={handleSave}>
+      <button className="btn btn-lg btn-dark" onClick={handleSave}>
         Submit
       </button>
       <hr />
-      <table className="table">
+      <table className="table table-dark table-hover">
         <thead>
           <tr>
             <th scope="col">id</th>
